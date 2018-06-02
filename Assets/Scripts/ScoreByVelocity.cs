@@ -42,7 +42,6 @@ namespace CabbyCoders.CrazyCab
             if (!myPlayerBehaviour.isGameOver())
             {
                 score += (int)GetVelocity();
-                Debug.Log(score);
                 config.scoreText.text = GetScore().ToString();
             }
         }

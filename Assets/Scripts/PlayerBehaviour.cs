@@ -42,6 +42,14 @@ namespace CabbyCoders.CrazyCab {
         config.gameOverText.SetActive(true);
         gameOver = true;
 
+<<<<<<< HEAD
+=======
+        float x = this.transform.position.x;
+        float y = this.transform.position.y - 1.0f;
+        float z = this.transform.position.z;
+        Vector3 position = new Vector3(x, y, z);
+
+>>>>>>> Fixes explosions
         GameObject explosion = config.explosion;
         Instantiate(explosion, this.transform.position, this.transform.rotation);
 

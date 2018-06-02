@@ -734,6 +734,7 @@ GameObject:
   - component: {fileID: 1129665779}
   - component: {fileID: 1129665780}
   - component: {fileID: 1129665782}
+  - component: {fileID: 1129665781}
   m_Layer: 0
   m_Name: Player
   m_TagString: CanDestroy
@@ -803,7 +804,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1129665774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.07, y: 1.36, z: -8.35}
+  m_LocalPosition: {x: 0, y: 1.36, z: -8.035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 282840814}
@@ -860,6 +861,18 @@ MonoBehaviour:
   HorizontalAxis: 0
   rb: {fileID: 0}
   mobileInput: {fileID: 0}
+--- !u!114 &1129665781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1129665774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33ef9826d6a54c88bfeb5c0615ecce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HorizontalAxis: 0
 --- !u!114 &1129665782
 MonoBehaviour:
   m_ObjectHideFlags: 0
