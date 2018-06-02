@@ -11,14 +11,16 @@ namespace CabbyCoders.CrazyCab {
 
 		public void FixedUpdate()
         {
-            Input.GetAxis("Horizontal");
-            Debug.Log(Input.GetAxis("Horizontal"));
 
             Vector3 velocity = transform.forward * config.startingSpeed;
 
             rb.velocity = velocity;
-            //if (KeyCode.LeftArrow{
-            //transform.rotation
+            float rotationY = Input.GetAxis("Horizontal");
+
+            Vector3 rot = transform.rotation.eulerAngles;
+            transform.rotation = Quaternion.Euler(rot.x, rot.y + rotationY, rot.z);
+
+
         }
 		
 
