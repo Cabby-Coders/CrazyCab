@@ -9,8 +9,9 @@ namespace CabbyCoders.CrazyCab {
 
     public void Start () {
       Generate();
+      Clone();
     }
-    
+
     public void Generate() {
       for(int i = 0; i < config.numberOfRocks; ++i) {
         Vector3 location = GenerateLocation();
@@ -28,13 +29,19 @@ namespace CabbyCoders.CrazyCab {
 
     public GameObject GenerateRock(Vector3 location) {
       int rock = Random.Range(0, config.rocks.Length - 1);
-      return Instantiate(config.rocks[rock], location, Quaternion.identity, transform);
+      return Instantiate(config.rocks[rock], location, Quaternion.identity, config.rockGroup.transform);
+    }
+
+    private void Clone() {
+      Vector3 location = new Vector3(config.bounds.Width(), 0, 0);
+      Instantiate(config.rockGroup, location, Quaternion.identity, transform);
     }
 
     [System.Serializable]
     public class Config {
       public Rectangle bounds;
       public int numberOfRocks;
+      public GameObject rockGroup;
       public GameObject[] rocks;
     }
 
@@ -44,6 +51,14 @@ namespace CabbyCoders.CrazyCab {
       public float minZ = -10.0f;
       public float maxX = 10.0f;
       public float maxZ = 10.0f;
+
+      public float Width() {
+        return maxX - minX;
+      }
+
+      public float Length() {
+        return maxZ - minZ;
+      }
     }
   }
 }
