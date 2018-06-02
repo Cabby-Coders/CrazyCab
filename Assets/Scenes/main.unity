@@ -731,8 +731,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config:
-    startingSpeed: 3
-    acceleration: 0.001
+    startingSpeed: 6
+    acceleration: 0.0025
     rotationSpeed: 1
     gameOverText: {fileID: 1267640852}
   rb: {fileID: 0}
