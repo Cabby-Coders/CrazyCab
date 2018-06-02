@@ -412,6 +412,7 @@ GameObject:
   - component: {fileID: 1129665779}
   - component: {fileID: 1129665780}
   - component: {fileID: 1129665781}
+  - component: {fileID: 1129665782}
   m_Layer: 0
   m_Name: Player
   m_TagString: CanDestroy
@@ -516,6 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   config:
     startingSpeed: 3
+  rb: {fileID: 0}
 --- !u!114 &1129665781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,3 +532,15 @@ MonoBehaviour:
   config:
     explosion: {fileID: 1000010608846784, guid: 6747b1742d70743a8aff8594e708b2f7,
       type: 2}
+--- !u!114 &1129665782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1129665774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe400bbcdb654204a3b8729c3000c55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
