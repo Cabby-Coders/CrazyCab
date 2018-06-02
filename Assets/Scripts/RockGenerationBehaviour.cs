@@ -32,6 +32,10 @@ namespace CabbyCoders.CrazyCab {
       Clone(w, l);
     }
 
+    public Rectangle GetBounds() {
+      return config.bounds;
+    }
+
     public Vector3 GenerateLocation() {
       return new Vector3(
         Random.Range(config.bounds.minX, config.bounds.maxX),

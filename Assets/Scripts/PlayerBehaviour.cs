@@ -22,10 +22,12 @@ namespace CabbyCoders.CrazyCab {
     }
 
 		public void FixedUpdate() {
-            Accelerate();
-          GoForward();
-          Steer();
-            SetSpeedText();
+      Accelerate();
+      GoForward();
+      Steer();
+      ResetPlusX();
+      ResetPlusZ();
+      SetSpeedText();      
     }
 
         public void SetSpeedText() {
@@ -71,6 +73,37 @@ float rotationY = mobileInput.HorizontalAxis * config.rotationSpeed;
     transform.rotation = Quaternion.Euler(rot.x, rot.y + rotationY, rot.z);
   }
 
+  private void ResetPlusX(){
+    if(transform.position.x >= config.generator.GetBounds().maxX)
+    {
+      Vector3 currentPos =  transform.position;
+      float newX = transform.position.x - config.generator.GetBounds().Width();
+      transform.position = new Vector3(newX, currentPos.y, currentPos.z);
+    }
+  }
+
+   private void ResetPlusZ(){
+    if(transform.position.z >= config.generator.GetBounds().maxZ)
+    {
+      Vector3 currentPos =  transform.position;
+      float newZ = transform.position.z - config.generator.GetBounds().Length();
+      transform.position = new Vector3(currentPos.x, currentPos.y, newZ);
+    }
+  }
+
+	//	public void Update()
+	//{
+ //       if (this collided) {
+ //           GameOver();
+ //       }
+	//}
+
+    //public void GameOver() {
+    //    blowUpAnimation();
+    //        GameoverScreen;
+    //        restart ? ();
+    //}
+
 
 		[System.Serializable]
     public class Config {
@@ -80,7 +113,8 @@ float rotationY = mobileInput.HorizontalAxis * config.rotationSpeed;
       public GameObject gameOverText;
       public GameObject explosion;
       public GameObject force;
-            public Text speedText;
+      public Text speedText;
+      public RockGenerationBehaviour generator;
     }
 
 
