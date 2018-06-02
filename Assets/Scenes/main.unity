@@ -734,7 +734,7 @@ MonoBehaviour:
     startingSpeed: 3
     acceleration: 0.001
     rotationSpeed: 1
-    gameOverText: {fileID: 0}
+    gameOverText: {fileID: 1267640852}
   rb: {fileID: 0}
 --- !u!114 &1129665781
 MonoBehaviour:
