@@ -7,9 +7,22 @@ namespace CabbyCoders.CrazyCab {
 
     [SerializeField] private Config config;
 
-    private Rigidbody rb;
+    public Rigidbody rb;
 
-    public void Start () {
+		public void FixedUpdate()
+        {
+            Input.GetAxis("Horizontal");
+            Debug.Log(Input.GetAxis("Horizontal"));
+
+            Vector3 velocity = transform.forward * config.startingSpeed;
+
+            rb.velocity = velocity;
+            //if (KeyCode.LeftArrow{
+            //transform.rotation
+        }
+		
+
+    public void Start (){
       rb = GetComponent<Rigidbody>();
       rb.velocity = new Vector3(0, 0, config.startingSpeed);
     }
@@ -38,6 +51,7 @@ namespace CabbyCoders.CrazyCab {
     public class Config {
       public float startingSpeed = 1.0f;
     }
+
 
   }
 }
