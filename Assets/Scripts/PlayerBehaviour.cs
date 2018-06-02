@@ -16,27 +16,32 @@ namespace CabbyCoders.CrazyCab {
       currentSpeed = config.startingSpeed;
     }
 
-		public void FixedUpdate()
-        {
-            currentSpeed += config.acceleration;
-            Vector3 velocity = transform.forward * currentSpeed;
-
-            rb.velocity = velocity;
-            float rotationY = Input.GetAxis("Horizontal") * config.rotationSpeed;
-
-            Vector3 rot = transform.rotation.eulerAngles;
-            transform.rotation = Quaternion.Euler(rot.x, rot.y + rotationY, rot.z);
-
-
-        }
+		public void FixedUpdate() {
+      Accelerate();
+      GoForward();
+      Steer();
+    }
 	
-
-
 	private void OnCollisionEnter(Collision collision)
 	{
 
       rb.velocity = new Vector3(0, 0, -1 * config.startingSpeed);
 	}
+
+  private void Accelerate() {
+    currentSpeed += config.acceleration;
+  }
+
+  private void GoForward() {
+    rb.velocity = transform.forward * currentSpeed;
+  }
+
+  private void Steer() {
+    float rotationY = Input.GetAxis("Horizontal") * config.rotationSpeed;
+
+    Vector3 rot = transform.rotation.eulerAngles;
+    transform.rotation = Quaternion.Euler(rot.x, rot.y + rotationY, rot.z);
+  }
 
 	//	public void Update()
 	//{
