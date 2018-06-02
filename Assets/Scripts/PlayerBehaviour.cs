@@ -18,12 +18,11 @@ namespace CabbyCoders.CrazyCab {
 
 		public void FixedUpdate()
         {
-            currentSpeed += 0.001f;
-            Debug.Log(currentSpeed);
+            currentSpeed += config.acceleration;
             Vector3 velocity = transform.forward * currentSpeed;
 
             rb.velocity = velocity;
-            float rotationY = Input.GetAxis("Horizontal");
+            float rotationY = Input.GetAxis("Horizontal") * config.rotationSpeed;
 
             Vector3 rot = transform.rotation.eulerAngles;
             transform.rotation = Quaternion.Euler(rot.x, rot.y + rotationY, rot.z);
@@ -55,6 +54,8 @@ namespace CabbyCoders.CrazyCab {
 		[System.Serializable]
     public class Config {
       public float startingSpeed = 1.0f;
+      public float acceleration = 0.001f;
+      public float rotationSpeed = 1.0f;
     }
 
 
