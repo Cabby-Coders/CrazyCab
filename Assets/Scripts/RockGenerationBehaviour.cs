@@ -9,7 +9,7 @@ namespace CabbyCoders.CrazyCab {
 
     public void Start () {
       Generate();
-      Clone();
+      GenerateClones();
     }
 
     public void Generate() {
@@ -17,6 +17,19 @@ namespace CabbyCoders.CrazyCab {
         Vector3 location = GenerateLocation();
         GenerateRock(location);
       }
+    }
+
+    public void GenerateClones() {
+      float w = config.bounds.Width();
+      float l = config.bounds.Length();
+      Clone(-w, -l);
+      Clone(-w, 0);
+      Clone(-w, l);
+      Clone(0, -l);
+      Clone(0, l);
+      Clone(w, -l);
+      Clone(w, 0);
+      Clone(w, l);
     }
 
     public Vector3 GenerateLocation() {
@@ -32,8 +45,8 @@ namespace CabbyCoders.CrazyCab {
       return Instantiate(config.rocks[rock], location, Quaternion.identity, config.rockGroup.transform);
     }
 
-    private void Clone() {
-      Vector3 location = new Vector3(config.bounds.Width(), 0, 0);
+    private void Clone(float x, float z) {
+      Vector3 location = new Vector3(x, 0, z);
       Instantiate(config.rockGroup, location, Quaternion.identity, transform);
     }
 
