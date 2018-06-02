@@ -7,12 +7,20 @@ namespace CabbyCoders.CrazyCab {
 
     [SerializeField] private Config config;
 
+    private float currentSpeed;
     public Rigidbody rb;
+
+    public void Start (){
+      rb = GetComponent<Rigidbody>();
+      rb.velocity = new Vector3(0, 0, config.startingSpeed);
+      currentSpeed = config.startingSpeed;
+    }
 
 		public void FixedUpdate()
         {
-
-            Vector3 velocity = transform.forward * config.startingSpeed;
+            currentSpeed += 0.001f;
+            Debug.Log(currentSpeed);
+            Vector3 velocity = transform.forward * currentSpeed;
 
             rb.velocity = velocity;
             float rotationY = Input.GetAxis("Horizontal");
@@ -22,12 +30,7 @@ namespace CabbyCoders.CrazyCab {
 
 
         }
-		
-
-    public void Start (){
-      rb = GetComponent<Rigidbody>();
-      rb.velocity = new Vector3(0, 0, config.startingSpeed);
-    }
+	
 
 
 	private void OnCollisionEnter(Collision collision)
