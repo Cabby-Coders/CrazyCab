@@ -8,12 +8,10 @@ namespace CabbyCoders.CrazyCab {
   public class PlayerBehaviour : MonoBehaviour {
 
     [SerializeField] private Config config;
-
-        private bool gameOver = false;
-        private float currentSpeed;
-        public Rigidbody rb;
-        private MobileInput mobileInput;
-
+    private bool gameOver = false;
+    private float currentSpeed;
+    public Rigidbody rb;
+    private MobileInput mobileInput;
 
     public void Start (){
       rb = GetComponent<Rigidbody>();
@@ -22,7 +20,7 @@ namespace CabbyCoders.CrazyCab {
       currentSpeed = config.startingSpeed;
     }
 
-		public void FixedUpdate() {
+	public void FixedUpdate() {
       Accelerate();
       GoForward();
       Steer();
@@ -35,21 +33,22 @@ namespace CabbyCoders.CrazyCab {
             config.speedText.text = rb.velocity.magnitude.ToString();
         }
 	
-        public bool isGameOver(){
-            return gameOver;
-        }
+    public bool isGameOver(){
+        return gameOver;
+    }
+
 	private void OnCollisionEnter(Collision collision)
 	{
-            config.gameOverText.SetActive(true);
-            gameOver = true;
+        config.gameOverText.SetActive(true);
+        gameOver = true;
 
-            GameObject explosion = config.explosion;
-            Instantiate(explosion, this.transform.position, this.transform.rotation);
+        GameObject explosion = config.explosion;
+        Instantiate(explosion, this.transform.position, this.transform.rotation);
 
-            GameObject force = config.force;
-            Instantiate(force, this.transform.position, this.transform.rotation);
+        GameObject force = config.force;
+        Instantiate(force, this.transform.position, this.transform.rotation);
 
-            StartCoroutine(delayReset());
+        StartCoroutine(delayReset());
     }
 
   private void Accelerate() {
@@ -61,7 +60,7 @@ namespace CabbyCoders.CrazyCab {
   }
 
   private void Steer() {
-float rotationY = mobileInput.HorizontalAxis * config.rotationSpeed;
+    float rotationY = mobileInput.HorizontalAxis * config.rotationSpeed;
 
     Vector3 rot = transform.rotation.eulerAngles;
     transform.rotation = Quaternion.Euler(rot.x, rot.y + rotationY, rot.z);
