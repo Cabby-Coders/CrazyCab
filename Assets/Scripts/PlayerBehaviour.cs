@@ -7,6 +7,7 @@ namespace CabbyCoders.CrazyCab {
 
     [SerializeField] private Config config;
 
+        private bool gameOver = false;
     private float currentSpeed;
     public Rigidbody rb;
         public MobileInput mobileInput;
@@ -25,9 +26,28 @@ namespace CabbyCoders.CrazyCab {
       Steer();
     }
 	
+        public bool isGameOver(){
+            return gameOver;
+        }
 	private void OnCollisionEnter(Collision collision)
 	{
             config.gameOverText.SetActive(true);
+            gameOver = true;
+
+            float x = this.transform.position.x + 2;
+            float y = this.transform.position.y - 1;
+            float z = this.transform.position.z;
+            Vector3 position = new Vector3(x, y, z);
+
+
+            GameObject explosion = config.explosion;
+            Instantiate(explosion);
+            explosion.transform.position = position;
+
+
+            GameObject force = config.force;
+            Instantiate(force);
+            force.transform.position = position;
     }
 
   private void Accelerate() {
@@ -45,19 +65,6 @@ float rotationY = mobileInput.HorizontalAxis * config.rotationSpeed;
     transform.rotation = Quaternion.Euler(rot.x, rot.y + rotationY, rot.z);
   }
 
-	//	public void Update()
-	//{
- //       if (this collided) {
- //           GameOver();
- //       }
-	//}
-
-    //public void GameOver() {
-    //    blowUpAnimation();
-    //        GameoverScreen;
-    //        restart ? ();
-    //}
-
 
 		[System.Serializable]
     public class Config {
@@ -65,6 +72,8 @@ float rotationY = mobileInput.HorizontalAxis * config.rotationSpeed;
       public float acceleration = 0.001f;
       public float rotationSpeed = 1.0f;
       public GameObject gameOverText;
+      public GameObject explosion;
+      public GameObject force;
     }
 
 
