@@ -411,9 +411,10 @@ GameObject:
   - component: {fileID: 1129665775}
   - component: {fileID: 1129665779}
   - component: {fileID: 1129665780}
+  - component: {fileID: 1129665781}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: CanDestroy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -515,3 +516,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   config:
     startingSpeed: 3
+--- !u!114 &1129665781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1129665774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 358f4a9a776094bc18535d62041dfdff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config:
+    explosion: {fileID: 1000010608846784, guid: 6747b1742d70743a8aff8594e708b2f7,
+      type: 2}
