@@ -4,14 +4,26 @@ using UnityEngine;
 
 public class Explodes : MonoBehaviour {
 
-    [SerializeField] private Config config;
 
+
+    [SerializeField] private Config config;
+   
 	public void OnCollisionEnter(Collision collision)
 	{
+        float x = this.transform.position.x + 2;
+        float y = this.transform.position.y - 4;
+        float z = this.transform.position.z;
+        Vector3 position = new Vector3(x, y, z);
+
+
         GameObject explosion = config.explosion;
         Instantiate(explosion);
-        //explosion.AddComponent<Rigidbody>();
-        explosion.transform.position = this.transform.position;
+        explosion.transform.position = position;
+
+
+        GameObject force = config.force;
+        Instantiate(force);
+        force.transform.position = position;
 	}
 
 
@@ -19,5 +31,6 @@ public class Explodes : MonoBehaviour {
     public class Config
     {
         public GameObject explosion;
+        public GameObject force;
     }
 }
