@@ -24,9 +24,8 @@ namespace CabbyCoders.CrazyCab {
 	
 	private void OnCollisionEnter(Collision collision)
 	{
-
-      rb.velocity = new Vector3(0, 0, -1 * config.startingSpeed);
-	}
+            config.gameOverText.SetActive(true);
+    }
 
   private void Accelerate() {
     currentSpeed += config.acceleration;
@@ -56,11 +55,13 @@ namespace CabbyCoders.CrazyCab {
     //        restart ? ();
     //}
 
+
 		[System.Serializable]
     public class Config {
       public float startingSpeed = 1.0f;
       public float acceleration = 0.001f;
       public float rotationSpeed = 1.0f;
+      public GameObject gameOverText;
     }
 
 
