@@ -11,7 +11,7 @@ namespace CabbyCoders.CrazyCab {
         private bool gameOver = false;
         private float currentSpeed;
         public Rigidbody rb;
-        public MobileInput mobileInput;
+        private MobileInput mobileInput;
 
 
     public void Start (){

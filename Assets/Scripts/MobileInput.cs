@@ -2,27 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobileInput : MonoBehaviour
+namespace CabbyCoders.CrazyCab
 {
-
-    public float HorizontalAxis;
-
-    // Use this for initialization
-    void Start()
+    public class MobileInput : MonoBehaviour
     {
-        HorizontalAxis = 0;
-    }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if ((Application.platform == RuntimePlatform.IPhonePlayer) || (Application.platform == RuntimePlatform.IPhonePlayer))
+        public float HorizontalAxis;
+
+        // Use this for initialization
+        void Start()
         {
-            HorizontalAxis = Input.acceleration.z;
+            HorizontalAxis = 0;
         }
-        else
+
+        // Update is called once per frame
+        void FixedUpdate()
         {
-            HorizontalAxis = Input.GetAxis("Horizontal");
+            if ((Application.platform == RuntimePlatform.IPhonePlayer) || (Application.platform == RuntimePlatform.Android))
+            {
+                HorizontalAxis = Input.acceleration.z;
+            }
+            else
+            {
+                HorizontalAxis = Input.GetAxis("Horizontal");
+            }
         }
     }
 }
