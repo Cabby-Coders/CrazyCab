@@ -39,6 +39,10 @@ namespace CabbyCoders.CrazyCab {
         return gameOver;
     }
 
+        public MobileInput GetInput() {
+            return mobileInput;
+        }
+
 	private void OnCollisionEnter(Collision collision)
 	{
         config.gameOverText.SetActive(true);
