@@ -14,7 +14,27 @@ namespace CabbyCoders.CrazyCab {
       rb.velocity = new Vector3(0, 0, config.startingSpeed);
     }
 
-    [System.Serializable]
+
+	private void OnCollisionEnter(Collision collision)
+	{
+
+      rb.velocity = new Vector3(0, 0, -1 * config.startingSpeed);
+	}
+
+	//	public void Update()
+	//{
+ //       if (this collided) {
+ //           GameOver();
+ //       }
+	//}
+
+    //public void GameOver() {
+    //    blowUpAnimation();
+    //        GameoverScreen;
+    //        restart ? ();
+    //}
+
+		[System.Serializable]
     public class Config {
       public float startingSpeed = 1.0f;
     }
