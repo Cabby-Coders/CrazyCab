@@ -26,6 +26,8 @@ namespace CabbyCoders.CrazyCab {
       Steer();
       ResetPlusX();
       ResetPlusZ();
+      ResetMinusX();
+      ResetMinusZ();
       SetSpeedText();      
     }
 
@@ -75,6 +77,14 @@ namespace CabbyCoders.CrazyCab {
     }
   }
 
+  private void ResetMinusX(){
+    if(transform.position.x <= config.generator.GetBounds().minX){
+      Vector3 currentPos = transform.position;
+      float newX = transform.position.x + config.generator.GetBounds().Width();
+      transform.position = new Vector3(newX, currentPos.y, currentPos.z);
+    }
+  }
+
    private void ResetPlusZ(){
     if(transform.position.z >= config.generator.GetBounds().maxZ)
     {
@@ -83,6 +93,15 @@ namespace CabbyCoders.CrazyCab {
       transform.position = new Vector3(currentPos.x, currentPos.y, newZ);
     }
   }
+
+  private void ResetMinusZ(){
+    if(transform.position.z <= config.generator.GetBounds().minZ){
+      Vector3 currentPos = transform.position;
+      float newZ = transform.position.z + config.generator.GetBounds().Width();
+      transform.position = new Vector3(currentPos.x, currentPos.y, newZ);
+    }
+  }
+
     private IEnumerator delayReset()
     {
         yield return new WaitForSecondsRealtime(5);
