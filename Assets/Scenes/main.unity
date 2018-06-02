@@ -766,6 +766,8 @@ MonoBehaviour:
     acceleration: 0.0025
     rotationSpeed: 1
     gameOverText: {fileID: 1267640852}
+    explosion: {fileID: 0}
+    force: {fileID: 0}
   rb: {fileID: 0}
   mobileInput: {fileID: 0}
 --- !u!114 &1129665781
@@ -776,12 +778,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1129665774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 358f4a9a776094bc18535d62041dfdff, type: 3}
+  m_Script: {fileID: 11500000, guid: f33ef9826d6a54c88bfeb5c0615ecce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  config:
-    explosion: {fileID: 100000, guid: e0dc4d47bced6d54ab1461804114b5d0, type: 2}
-    force: {fileID: 100000, guid: 33e699e7f450bcd4b93af87907df6869, type: 2}
+  HorizontalAxis: 0
 --- !u!114 &1129665782
 MonoBehaviour:
   m_ObjectHideFlags: 0
