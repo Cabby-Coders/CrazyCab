@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace CabbyCoders.CrazyCab {
   public class PlayerBehaviour : MonoBehaviour {
@@ -8,8 +9,8 @@ namespace CabbyCoders.CrazyCab {
     [SerializeField] private Config config;
 
         private bool gameOver = false;
-    private float currentSpeed;
-    public Rigidbody rb;
+        private float currentSpeed;
+        public Rigidbody rb;
         public MobileInput mobileInput;
 
 
@@ -21,10 +22,15 @@ namespace CabbyCoders.CrazyCab {
     }
 
 		public void FixedUpdate() {
-      Accelerate();
-      GoForward();
-      Steer();
+            Accelerate();
+          GoForward();
+          Steer();
+            SetSpeedText();
     }
+
+        public void SetSpeedText() {
+            config.speedText.text = rb.velocity.magnitude.ToString();
+        }
 	
         public bool isGameOver(){
             return gameOver;
@@ -74,6 +80,7 @@ float rotationY = mobileInput.HorizontalAxis * config.rotationSpeed;
       public GameObject gameOverText;
       public GameObject explosion;
       public GameObject force;
+            public Text speedText;
     }
 
 
