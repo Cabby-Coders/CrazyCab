@@ -676,10 +676,10 @@ RectTransform:
   m_Father: {fileID: 581238522}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -313.1, y: 209.6}
-  m_SizeDelta: {x: 175.7, y: 40.8}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 113, y: -47}
+  m_SizeDelta: {x: 175.7, y: 38.799988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &907745941
 MonoBehaviour:
@@ -733,7 +733,6 @@ GameObject:
   - component: {fileID: 1129665775}
   - component: {fileID: 1129665779}
   - component: {fileID: 1129665780}
-  - component: {fileID: 1129665781}
   - component: {fileID: 1129665782}
   m_Layer: 0
   m_Name: Player
@@ -859,6 +858,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HorizontalAxis: 0
+  rb: {fileID: 0}
+  mobileInput: {fileID: 0}
 --- !u!114 &1129665782
 MonoBehaviour:
   m_ObjectHideFlags: 0

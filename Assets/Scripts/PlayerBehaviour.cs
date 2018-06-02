@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace CabbyCoders.CrazyCab {
   public class PlayerBehaviour : MonoBehaviour {
@@ -42,20 +43,13 @@ namespace CabbyCoders.CrazyCab {
             config.gameOverText.SetActive(true);
             gameOver = true;
 
-            float x = this.transform.position.x + 2;
-            float y = this.transform.position.y - 1;
-            float z = this.transform.position.z;
-            Vector3 position = new Vector3(x, y, z);
-
-
             GameObject explosion = config.explosion;
-            Instantiate(explosion);
-            explosion.transform.position = position;
-
+            Instantiate(explosion, this.transform.position, this.transform.rotation);
 
             GameObject force = config.force;
-            Instantiate(force);
-            force.transform.position = position;
+            Instantiate(force, this.transform.position, this.transform.rotation);
+
+            StartCoroutine(delayReset());
     }
 
   private void Accelerate() {
@@ -90,19 +84,11 @@ float rotationY = mobileInput.HorizontalAxis * config.rotationSpeed;
       transform.position = new Vector3(currentPos.x, currentPos.y, newZ);
     }
   }
-
-	//	public void Update()
-	//{
- //       if (this collided) {
- //           GameOver();
- //       }
-	//}
-
-    //public void GameOver() {
-    //    blowUpAnimation();
-    //        GameoverScreen;
-    //        restart ? ();
-    //}
+    private IEnumerator delayReset()
+    {
+        yield return new WaitForSecondsRealtime(5);
+        SceneManager.LoadScene(0);
+    }
 
 
 		[System.Serializable]
@@ -116,7 +102,6 @@ float rotationY = mobileInput.HorizontalAxis * config.rotationSpeed;
       public Text speedText;
       public RockGenerationBehaviour generator;
     }
-
 
   }
 }
