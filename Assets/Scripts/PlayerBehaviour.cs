@@ -9,10 +9,13 @@ namespace CabbyCoders.CrazyCab {
 
     private float currentSpeed;
     public Rigidbody rb;
+        public MobileInput mobileInput;
+
 
     public void Start (){
       rb = GetComponent<Rigidbody>();
       rb.velocity = new Vector3(0, 0, config.startingSpeed);
+      mobileInput = GetComponent<MobileInput>();
       currentSpeed = config.startingSpeed;
     }
 
@@ -36,7 +39,7 @@ namespace CabbyCoders.CrazyCab {
   }
 
   private void Steer() {
-    float rotationY = Input.GetAxis("Horizontal") * config.rotationSpeed;
+float rotationY = mobileInput.HorizontalAxis * config.rotationSpeed;
 
     Vector3 rot = transform.rotation.eulerAngles;
     transform.rotation = Quaternion.Euler(rot.x, rot.y + rotationY, rot.z);
