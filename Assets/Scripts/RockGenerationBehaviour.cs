@@ -27,7 +27,8 @@ namespace CabbyCoders.CrazyCab {
     }
 
     public GameObject GenerateRock(Vector3 location) {
-      return Instantiate(config.rocks[0], location, Quaternion.identity, transform);
+      int rock = Random.Range(0, config.rocks.Length - 1);
+      return Instantiate(config.rocks[rock], location, Quaternion.identity, transform);
     }
 
     [System.Serializable]

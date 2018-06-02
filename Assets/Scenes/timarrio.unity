@@ -582,6 +582,15 @@ MonoBehaviour:
     numberOfRocks: 10
     rocks:
     - {fileID: 100000, guid: 0f1e1518a80e562458930d8b2d0670d9, type: 2}
+    - {fileID: 100000, guid: 27bfdb9a40efac94b969eaf77cea92d9, type: 2}
+    - {fileID: 100000, guid: 5f36b57d675b1444cb2203b7a6cac6cb, type: 2}
+    - {fileID: 100010, guid: 76075d4f24491b84eb0b4ac914362e3f, type: 2}
+    - {fileID: 100000, guid: 940d55d4117386f4f9398ea3ff52d4cd, type: 2}
+    - {fileID: 100000, guid: d2db22038a6f9804598cd46453cc7cb8, type: 2}
+    - {fileID: 100000, guid: 977e7278d3486f1489724a6d226b9ca0, type: 2}
+    - {fileID: 100000, guid: fb5464049dae54247bf24c0e536cd6b4, type: 2}
+    - {fileID: 100000, guid: f282d9fb9b399dd4384b20aba08642fb, type: 2}
+    - {fileID: 100000, guid: d9c3d22cdfbbcfd4f8d8019ff97a0f2e, type: 2}
 --- !u!4 &1415018144
 Transform:
   m_ObjectHideFlags: 0
