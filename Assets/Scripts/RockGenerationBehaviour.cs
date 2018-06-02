@@ -6,8 +6,10 @@ namespace CabbyCoders.CrazyCab {
   public class RockGenerationBehaviour : MonoBehaviour {
 
     [SerializeField] private Config config;
+    private Rectangle bounds;
 
     public void Start () {
+      this.bounds = new Rectangle(config.ground.GetComponent<Renderer>().bounds);
       Generate();
       GenerateClones();
     }
@@ -20,8 +22,8 @@ namespace CabbyCoders.CrazyCab {
     }
 
     public void GenerateClones() {
-      float w = config.bounds.Width();
-      float l = config.bounds.Length();
+      float w = bounds.Width();
+      float l = bounds.Length();
       Clone(-w, -l);
       Clone(-w, 0);
       Clone(-w, l);
@@ -33,14 +35,14 @@ namespace CabbyCoders.CrazyCab {
     }
 
     public Rectangle GetBounds() {
-      return config.bounds;
+      return bounds;
     }
 
     public Vector3 GenerateLocation() {
       return new Vector3(
-        Random.Range(config.bounds.minX, config.bounds.maxX),
+        Random.Range(bounds.minX, bounds.maxX),
         0,
-        Random.Range(config.bounds.minZ, config.bounds.maxZ)
+        Random.Range(bounds.minZ, bounds.maxZ)
       );
     }
 
@@ -52,11 +54,12 @@ namespace CabbyCoders.CrazyCab {
     private void Clone(float x, float z) {
       Vector3 location = new Vector3(x, 0, z);
       Instantiate(config.rockGroup, location, Quaternion.identity, transform);
+      Instantiate(config.ground, location, Quaternion.identity, transform);
     }
 
     [System.Serializable]
     public class Config {
-      public Rectangle bounds;
+      public GameObject ground;
       public int numberOfRocks;
       public GameObject rockGroup;
       public GameObject[] rocks;
@@ -68,6 +71,14 @@ namespace CabbyCoders.CrazyCab {
       public float minZ = -10.0f;
       public float maxX = 10.0f;
       public float maxZ = 10.0f;
+
+      public Rectangle(Bounds bounds) {
+        minX = bounds.min.x;
+        minZ = bounds.min.z;
+
+        maxX = bounds.max.x;
+        maxZ = bounds.max.z;
+      }
 
       public float Width() {
         return maxX - minX;
