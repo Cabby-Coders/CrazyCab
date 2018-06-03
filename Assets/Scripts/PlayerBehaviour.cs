@@ -58,7 +58,10 @@ namespace CabbyCoders.CrazyCab {
     }
 
   private void Accelerate() {
-    currentSpeed += config.acceleration;
+    if (currentSpeed < 220) {
+        currentSpeed = currentSpeed + (config.acceleration * 0.001f);
+    }        
+    config.acceleration += 1f;
   }
 
   private void GoForward() {
