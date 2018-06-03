@@ -66,8 +66,8 @@ namespace CabbyCoders.CrazyCab {
 
   private void Accelerate() {
     if (currentSpeed < 220) {
-        currentSpeed = currentSpeed + (config.acceleration * 0.001f);
-        config.acceleration += 1f;        
+        currentSpeed = currentSpeed + (config.acceleration);
+        //config.acceleration += 1f;        
     }        
   }
 
@@ -156,7 +156,7 @@ namespace CabbyCoders.CrazyCab {
 		[System.Serializable]
     public class Config {
       public float startingSpeed = 1.0f;
-      public float acceleration = 0.001f;
+      public float acceleration = 0.005f;
       public float rotationSpeed = 1.0f;
       public GameObject gameOverText;
       public GameObject explosion;
