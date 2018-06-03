@@ -215,7 +215,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 581238522}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -895,11 +895,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1267640853}
-  - {fileID: 907745940}
+  - {fileID: 981750792}
   - {fileID: 491251949}
   - {fileID: 523231087}
   - {fileID: 1728681993}
-  - {fileID: 981750792}
   - {fileID: 111016839}
   m_Father: {fileID: 1129665778}
   m_RootOrder: 1
@@ -1041,16 +1040,16 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 907745939}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 581238522}
-  m_RootOrder: 1
+  m_Father: {fileID: 981750792}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 200, y: -47}
+  m_AnchoredPosition: {x: 171.945, y: -58.57997}
   m_SizeDelta: {x: 175.7, y: 38.799988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &907745941
@@ -1065,7 +1064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1074,7 +1073,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1238,14 +1237,15 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 907745940}
   m_Father: {fileID: 581238522}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 113, y: -47}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 153, y: -47}
+  m_SizeDelta: {x: 249.89, y: 117.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &981750793
 MonoBehaviour:
@@ -1259,7 +1259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1268,7 +1268,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1296,6 +1296,7 @@ GameObject:
   - component: {fileID: 1129665778}
   - component: {fileID: 1129665775}
   - component: {fileID: 1129665779}
+  - component: {fileID: 1129665777}
   - component: {fileID: 1129665780}
   - component: {fileID: 1129665782}
   - component: {fileID: 1129665781}
@@ -1355,6 +1356,24 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1129665777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1129665774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156d73e2f13474107a67302080f0ebc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedometer_main_tex: {fileID: 2800000, guid: ba9bab99750edd341be2a2ee5e716457,
+    type: 3}
+  speedometer_needle_tex: {fileID: 2800000, guid: f7e98c8d3f3fae34eac0bd8cc752b547,
+    type: 3}
+  zero_angle: -230
+  speed_add_value: 0.75
+  isKph: 0
 --- !u!4 &1129665778
 Transform:
   m_ObjectHideFlags: 0
