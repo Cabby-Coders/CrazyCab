@@ -52,7 +52,7 @@ namespace CabbyCoders.CrazyCab {
         gameOver = true;
 
         GameObject explosion = config.explosion;
-        Instantiate(explosion, this.transform.position, this.transform.rotation);
+        Instantiate(explosion, this.transform.position + new Vector3(2, -1, 0), this.transform.rotation);
 
         GameObject force = config.force;
         Instantiate(force, this.transform.position, this.transform.rotation);

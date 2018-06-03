@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 774c6fe16d827fe4685d1a5d46eb00cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 20
+  Radius: 30
   Force: 10000
 --- !u!1001 &100100000
 Prefab:
