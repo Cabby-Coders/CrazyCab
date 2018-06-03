@@ -40,13 +40,6 @@ namespace CabbyCoders.CrazyCab
         // Update is called once per frame
         void FixedUpdate()
         {
-            if ((Application.platform == RuntimePlatform.IPhonePlayer) || (Application.platform == RuntimePlatform.Android))
-            {
-                HorizontalAxis = Input.acceleration.z;
-            }
-            else
-            {
-                //HorizontalAxis = Input.GetAxis("Horizontal");
                 if(isTurningRight) {
                     HorizontalAxis = 1;
                 } else if(isTurningLeft) {
@@ -54,7 +47,6 @@ namespace CabbyCoders.CrazyCab
                 }else {
                     HorizontalAxis = 0;
                 }
-            }
         }
     }
 }
