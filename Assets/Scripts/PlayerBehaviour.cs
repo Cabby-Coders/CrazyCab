@@ -13,11 +13,15 @@ namespace CabbyCoders.CrazyCab {
     public Rigidbody rb;
     private MobileInput mobileInput;
 
+        private RockGenerationBehaviour currentTile;
+
     public void Start (){
       rb = GetComponent<Rigidbody>();
       rb.velocity = new Vector3(0, 0, config.startingSpeed);
       mobileInput = GetComponent<MobileInput>();
       currentSpeed = config.startingSpeed;
+
+            currentTile = config.generator;
     }
 
 	public void FixedUpdate() {
@@ -79,36 +83,66 @@ namespace CabbyCoders.CrazyCab {
   }
 
   private void ResetPlusX(){
-    if(transform.position.x >= config.generator.GetBounds().maxX)
+            if(transform.position.x >= currentTile.GetBounds().maxX)
     {
-      Vector3 currentPos =  transform.position;
-      float newX = transform.position.x - config.generator.GetBounds().Width();
-      transform.position = new Vector3(newX, currentPos.y, currentPos.z);
+                //Vector3 currentPos =  transform.position;
+                //float newX = transform.position.x - currentTile.GetBounds().Width();
+                //transform.position = new Vector3(newX, currentPos.y, currentPos.z);
+
+                config.obstaclesManager.GenerateRowPosX(currentTile.GetBounds());
+
+                Debug.Log(currentTile.GetBounds().XCoord() + (int)currentTile.GetBounds().Width());
+                currentTile = config.obstaclesManager.GetRockThing(
+                    currentTile.GetBounds().XCoord() + (int)currentTile.GetBounds().Width(),
+                    currentTile.GetBounds().ZCoord()
+                );
     }
   }
 
   private void ResetMinusX(){
-    if(transform.position.x <= config.generator.GetBounds().minX){
-      Vector3 currentPos = transform.position;
-      float newX = transform.position.x + config.generator.GetBounds().Width();
-      transform.position = new Vector3(newX, currentPos.y, currentPos.z);
+            if(transform.position.x <= currentTile.GetBounds().minX){
+      //Vector3 currentPos = transform.position;
+      //          float newX = transform.position.x + currentTile.GetBounds().Width();
+      //transform.position = new Vector3(newX, currentPos.y, currentPos.z);
+
+
+                config.obstaclesManager.GenerateRowNegX(currentTile.GetBounds());
+
+                currentTile = config.obstaclesManager.GetRockThing(
+                    currentTile.GetBounds().XCoord() - (int)currentTile.GetBounds().Width(),
+                    currentTile.GetBounds().ZCoord()
+                );
     }
   }
 
    private void ResetPlusZ(){
-    if(transform.position.z >= config.generator.GetBounds().maxZ)
+            if(transform.position.z >= currentTile.GetBounds().maxZ)
     {
-      Vector3 currentPos =  transform.position;
-      float newZ = transform.position.z - config.generator.GetBounds().Length();
-      transform.position = new Vector3(currentPos.x, currentPos.y, newZ);
+      //Vector3 currentPos =  transform.position;
+      //          float newZ = transform.position.z - currentTile.GetBounds().Length();
+      //transform.position = new Vector3(currentPos.x, currentPos.y, newZ);
+
+                config.obstaclesManager.GenerateRowPosZ(currentTile.GetBounds());
+
+                currentTile = config.obstaclesManager.GetRockThing(
+                    currentTile.GetBounds().XCoord(),
+                    currentTile.GetBounds().ZCoord() + (int)currentTile.GetBounds().Length()
+                );
     }
   }
 
   private void ResetMinusZ(){
-    if(transform.position.z <= config.generator.GetBounds().minZ){
-      Vector3 currentPos = transform.position;
-      float newZ = transform.position.z + config.generator.GetBounds().Width();
-      transform.position = new Vector3(currentPos.x, currentPos.y, newZ);
+            if(transform.position.z <= currentTile.GetBounds().minZ){
+      //Vector3 currentPos = transform.position;
+      //          float newZ = transform.position.z + currentTile.GetBounds().Width();
+      //transform.position = new Vector3(currentPos.x, currentPos.y, newZ);
+
+
+                config.obstaclesManager.GenerateRowNegZ(currentTile.GetBounds());
+                currentTile = config.obstaclesManager.GetRockThing(
+                    currentTile.GetBounds().XCoord(),
+                    currentTile.GetBounds().ZCoord() - (int)currentTile.GetBounds().Length()
+                );
     }
   }
 
@@ -129,6 +163,7 @@ namespace CabbyCoders.CrazyCab {
       public GameObject force;
       public Text speedText;
       public RockGenerationBehaviour generator;
+      public ObstaclesManager obstaclesManager;
     }
 
   }
