@@ -17,7 +17,7 @@ namespace CabbyCoders.CrazyCab {
     public void Generate() {
       for(int i = 0; i < config.numberOfRocks; ++i) {
         Vector3 location = GenerateLocation();
-        GenerateRock(location);
+        GenerateRock(location, config.rocks);
       }
     }
 
@@ -46,9 +46,9 @@ namespace CabbyCoders.CrazyCab {
       );
     }
 
-    public GameObject GenerateRock(Vector3 location) {
-      int rock = Random.Range(0, config.rocks.Length - 1);
-      return Instantiate(config.rocks[rock], location, Quaternion.identity, config.rockGroup.transform);
+    public GameObject GenerateRock(Vector3 location, GameObject[] rocks) {
+      int rock = Random.Range(0, rocks.Length - 1);
+      return Instantiate(rocks[rock], location, Quaternion.identity, config.rockGroup.transform);
     }
 
     private void Clone(float x, float z) {
@@ -62,7 +62,7 @@ namespace CabbyCoders.CrazyCab {
       public GameObject ground;
       public int numberOfRocks;
       public GameObject rockGroup;
-      public GameObject[] rocks;
+      public GameObject[] rocks;      
     }
 
     [System.Serializable]
