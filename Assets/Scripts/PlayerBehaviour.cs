@@ -21,14 +21,17 @@ namespace CabbyCoders.CrazyCab {
     }
 
 	public void FixedUpdate() {
-      Accelerate();
-      GoForward();
-      Steer();
-      ResetPlusX();
-      ResetPlusZ();
-      ResetMinusX();
-      ResetMinusZ();
-      SetSpeedText();
+      if(!gameOver){
+        Accelerate();
+        GoForward();
+        Steer();
+        ResetPlusX();
+        ResetPlusZ();
+        ResetMinusX();
+        ResetMinusZ();
+        SetSpeedText();
+      }
+
     }
 
         public void SetSpeedText() {
@@ -58,12 +61,10 @@ namespace CabbyCoders.CrazyCab {
     }
 
   private void Accelerate() {
-    if(!gameOver) {
       if (currentSpeed < 220) {
           currentSpeed = currentSpeed + (config.acceleration * 0.001f);
       }
-      config.acceleration += 1f;  
-    }
+      config.acceleration += 1f;
   }
 
   private void GoForward() {
