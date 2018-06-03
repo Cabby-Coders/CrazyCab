@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   config:
     ground: {fileID: 1604324366519900}
-    numberOfRocks: 15
+    numberOfRocks: 18
     rockGroup: {fileID: 1114655531690574}
     rocks:
     - {fileID: 100000, guid: 0f1e1518a80e562458930d8b2d0670d9, type: 2}
